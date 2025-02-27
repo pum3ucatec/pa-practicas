@@ -1,0 +1,48 @@
+# Archivos y carpetas de compilación
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.pdb
+*.log
+*.cache
+*.config
+*.db
+
+# Archivos de usuario y configuración de Visual Studio
+.vscode/
+.idea/
+*.suo
+*.user
+*.sln.cache
+*.csproj.user
+
+# Dependencias de NuGet
+packages/
+project.lock.json
+project.assets.json
+
+# Archivos generados por Avalonia
+.avalonia/
+
+# Archivos de depuración
+*.pidb
+*.ilk
+*.ipch
+*.obj
+*.pch
+
+# Archivos de respaldo del sistema
+Thumbs.db
+*.bak
+*.swp
+.DS_Store
+
+# Archivos de configuración local
+appsettings.json
+appsettings.Development.json
+
+# Publicaciones y distribuciones
+publish/
+dist/
