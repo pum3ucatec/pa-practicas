@@ -3,7 +3,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Controls.Shapes;
-using GeometriaCSharp.src; // Namespace de Cuadrado
+using GeometriaCSharp.src; // Asegúrate de que este namespace es correcto
 
 namespace GeometriaCSharp
 {
@@ -26,20 +26,22 @@ namespace GeometriaCSharp
             {
                 base.OnFrameworkInitializationCompleted();
 
-                // Crear instancia de Cuadrado con coordenadas dentro del Canvas
-                Cuadrado miCuadrado = new Cuadrado(100, 100, 100);
-
+                // Crear instancia de Cuadrado
+                Cuadrado miCuadrado = new Cuadrado(50, 50, 100);
                 Console.WriteLine($"Dibujando cuadrado en X:{miCuadrado.CoordenadaX}, Y:{miCuadrado.CoordenadaY}, Lado:{miCuadrado.Lado}");
 
-                // Crear un Canvas con fondo blanco
-                var canvas = new Canvas
+                // Crear contenedor principal
+                var stackPanel = new StackPanel
                 {
+                    Background = Brushes.White, // Fondo blanco para evitar transparencia
                     Width = 400,
-                    Height = 400,
-                    Background = Brushes.White
+                    Height = 400
                 };
 
-                // Crear el cuadrado como un Rectángulo
+                // Crear un Canvas dentro del StackPanel
+                var canvas = new Canvas();
+
+                // Crear el cuadrado como un rectángulo
                 var rectangulo = new Rectangle
                 {
                     Width = miCuadrado.Lado,
@@ -47,20 +49,23 @@ namespace GeometriaCSharp
                     Fill = Brushes.Blue
                 };
 
-                // Aplicar coordenadas al rectángulo
+                // Aplicar coordenadas
                 Canvas.SetLeft(rectangulo, miCuadrado.CoordenadaX);
                 Canvas.SetTop(rectangulo, miCuadrado.CoordenadaY);
 
-                // Agregar el rectángulo al canvas
+                // Agregar rectángulo al Canvas
                 canvas.Children.Add(rectangulo);
 
-                // Crear ventana y asignar el Canvas
+                // Agregar Canvas al StackPanel
+                stackPanel.Children.Add(canvas);
+
+                // Crear ventana y asignar StackPanel
                 var window = new Window
                 {
                     Title = "Dibujar Cuadrado",
                     Width = 400,
                     Height = 400,
-                    Content = canvas
+                    Content = stackPanel
                 };
 
                 window.Show();
