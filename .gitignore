@@ -46,3 +46,23 @@ appsettings.Development.json
 # Publicaciones y distribuciones
 publish/
 dist/
+
+# Ignorar archivos compilados Java
+*.class
+
+# Directorios de compilación y salida
+bin/
+target/
+
+# Archivos de configuración de IDEs
+.vscode/
+.idea/
+
+# Archivos generados por Maven/Gradle
+*.log
+*.tmp
+
+# Otros archivos temporales
+*.swp
+.DS_Store
+
